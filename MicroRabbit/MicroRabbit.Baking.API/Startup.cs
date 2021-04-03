@@ -34,6 +34,7 @@ namespace MicroRabbit.Baking.API
                 options.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection"));
             });
             services.AddControllers();
+            services.AddSwaggerGen();
             services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
@@ -61,6 +62,12 @@ namespace MicroRabbit.Baking.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(conf =>
+            {
+                conf.SwaggerEndpoint("/swagger/v1/swagger.json", "Banking Microservice v1");
             });
         }
     }
