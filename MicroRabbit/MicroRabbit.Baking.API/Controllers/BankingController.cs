@@ -7,9 +7,9 @@ namespace MicroRabbit.Baking.API.Controllers
     [ApiController]
     public class BankingController : ControllerBase
     {
-        private readonly IAccountAppService _accountAppService;
+        private readonly IAccountService _accountAppService;
 
-        public BankingController(IAccountAppService accountAppService)
+        public BankingController(IAccountService accountAppService)
         {
             _accountAppService = accountAppService;
         }
@@ -18,6 +18,13 @@ namespace MicroRabbit.Baking.API.Controllers
         public IActionResult Get()
         {
             return Ok(_accountAppService.GetAccounts());
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] AccountTransfer accountTransfer)
+        {
+            _accountAppService.Transfer(accountTransfer);
+            return Ok(accountTransfer);
         }
     }
 }
