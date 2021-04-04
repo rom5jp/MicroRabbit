@@ -1,4 +1,4 @@
-﻿namespace MicroRabbit.Baking.API.Controllers
+﻿namespace MicroRabbit.Banking.Application.DTOs
 {
     public class AccountTransfer
     {

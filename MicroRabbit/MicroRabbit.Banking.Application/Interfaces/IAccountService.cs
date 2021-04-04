@@ -1,8 +1,6 @@
-﻿using MicroRabbit.Baking.API.Controllers;
+﻿using MicroRabbit.Banking.Application.DTOs;
 using MicroRabbit.Banking.Domain.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MicroRabbit.Banking.Application.Interfaces
 {
